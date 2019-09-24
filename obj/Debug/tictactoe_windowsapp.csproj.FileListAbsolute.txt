@@ -1,0 +1,11 @@
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\bin\Debug\tictactoe_windowsapp.exe.config
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\bin\Debug\tictactoe_windowsapp.exe
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\bin\Debug\tictactoe_windowsapp.pdb
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.csprojAssemblyReference.cache
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.Properties.Resources.resources
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.csproj.GenerateResource.cache
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.csproj.CoreCompileInputs.cache
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.exe
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.pdb
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.GameForm.resources
+C:\Users\ragoh\OneDrive\Documents\Coding\tictactoe_windowsapp\tictactoe_windowsapp\obj\Debug\tictactoe_windowsapp.StartForm.resources
