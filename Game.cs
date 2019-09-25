@@ -56,6 +56,8 @@ namespace tictactoe_windowsapp
         //error here, need to repeatedly check for cats game/win
         public TileLocation PlayMove(PlayerType playerType, TileLocation tileLocation = TileLocation.None)
         {
+            TileLocation returnTile = TileLocation.None;
+
             if (_board.CheckForCatsGame())
             {
                 var handler = CatsGame;
@@ -79,14 +81,34 @@ namespace tictactoe_windowsapp
                 if (playerType == _human.Type)
                 {
                     PlayHumanMove(tileLocation);
-                    return tileLocation;
+                    returnTile = tileLocation;
                 }
                 else
                 {
-                    return PlayComputerMove();
+                    returnTile = PlayComputerMove();
                 }
             }
-            return TileLocation.None;
+
+            if (_board.CheckForCatsGame())
+            {
+                var handler = CatsGame;
+                handler(this, playerType);
+            }
+            else if (_board.CheckForWin())
+            {
+                if (_board.CheckForWin(_human.Type))
+                {
+                    var handler = WinnerFound;
+                    handler(this, _human.Type);
+                }
+                else
+                {
+                    var handler = WinnerFound;
+                    handler(this, _computer.Type);
+                }
+            }
+
+            return returnTile;
         }
 
         public void PlayHumanMove(TileLocation tileLocation)
@@ -101,10 +123,10 @@ namespace tictactoe_windowsapp
         public TileLocation PlayComputerMove()
         {
             int computerMove = _computer.PlayTurn(_board);
-            //if (_board.ValidMove(computerMove))
-            //{
+            if (_board.ValidMove(computerMove))
+            {
                 UpdateBoard(_computer.Type, computerMove);
-            //}
+            }
             return (TileLocation)computerMove;
         }
 
@@ -138,6 +160,29 @@ namespace tictactoe_windowsapp
             Console.WriteLine('|' + row1);
             Console.WriteLine('|' + row2);
             Console.WriteLine('|' + row3);
+        }
+
+        public void DisplayBoardToDebug()
+        {
+            string row1 = "";
+            string row2 = "";
+            string row3 = "";
+            for (int i = 0; i < _board.GetBoard().Count(); ++i)
+            {
+                string space = _board.GetBoard()[i].ToString();
+                if (_board.GetBoard()[i] == PlayerType.None)
+                    space = " ";
+
+                if (i < 3)
+                    row1 = row1 + (space + ' ') + " |";
+                else if (i > 2 && i < 6)
+                    row2 = row2 + (space + ' ') + " |";
+                else if (i > 5)
+                    row3 = row3 + (space + ' ') + " |";
+            }
+            System.Diagnostics.Debug.WriteLine('|' + row1);
+            System.Diagnostics.Debug.WriteLine('|' + row2);
+            System.Diagnostics.Debug.WriteLine('|' + row3);
         }
     }
 }

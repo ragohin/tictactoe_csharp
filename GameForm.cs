@@ -71,6 +71,8 @@ namespace tictactoe_windowsapp
 
                 _running = false;
             }
+
+            _game.DisplayBoardToDebug();
         }
 
         private void ExecuteComputerMove(object sender, EventArgs e)
