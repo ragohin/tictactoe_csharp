@@ -8,7 +8,7 @@ namespace tictactoe_windowsapp
 {
     public enum PlayerType
     {
-        X = 1, O = -1, None = -1
+        X = 1, O = -1, None = 0
     }
     public enum TileLocation
     {
@@ -53,6 +53,7 @@ namespace tictactoe_windowsapp
             _board = new Board();
         }
 
+        //error here, need to repeatedly check for cats game/win
         public TileLocation PlayMove(PlayerType playerType, TileLocation tileLocation = TileLocation.None)
         {
             if (_board.CheckForCatsGame())
@@ -93,83 +94,19 @@ namespace tictactoe_windowsapp
             if (_board.ValidMove((int)tileLocation))
             {
                 UpdateBoard(_human.Type, (int)tileLocation);
-                PlayComputerMove();
+                //PlayComputerMove();
             }
         }
 
         public TileLocation PlayComputerMove()
         {
             int computerMove = _computer.PlayTurn(_board);
-            if (_board.ValidMove(computerMove))
-            {
+            //if (_board.ValidMove(computerMove))
+            //{
                 UpdateBoard(_computer.Type, computerMove);
-            }
+            //}
             return (TileLocation)computerMove;
         }
-
-        /*
-        public void PlayGame()
-        {
-            while (!_board.CheckForCatsGame() && !_board.CheckForWin())
-            {
-                Console.WriteLine();
-
-                if (_currentPlayerTurn == _human.Type)
-                {
-                    int humanMove;
-                    while (true)
-                    {
-                        DisplayBoard();
-                        Console.WriteLine("Where would you like to play? (Enter number between 0 and 8)");
-                        humanMove = _human.PlayTurn();
-
-                        if (_board.ValidMove(humanMove))
-                            break;
-                        else
-                        {
-                            Console.WriteLine("That's not a valid move! Try again!");
-                            Console.WriteLine();
-                        }
-                    }
-                    UpdateBoard(_human.Type, humanMove);
-                }
-                else
-                {
-                    int computerMove;
-                    while (true)
-                    {
-                        DisplayBoard();
-                        computerMove = _computer.PlayTurn(_board);
-                        if (_board.ValidMove(computerMove))
-                            break;
-                        else
-                        {
-                            Console.WriteLine("Computer entered invalid move! Error in code!");
-                            Console.WriteLine();
-                        }
-                    }
-                    UpdateBoard(_computer.Type, computerMove);
-                    Console.WriteLine("Computer played at {0}", computerMove);
-                }
-                _currentPlayerTurn = (PlayerType)((int)_currentPlayerTurn * -1);
-            }
-            Console.WriteLine();
-
-            bool humanWins;
-            if (_board.CheckForCatsGame())
-            {
-                Console.WriteLine("Cat's game!!");
-            }
-            else if (humanWins = _board.CheckForWin(_human.Type))
-            {
-                if (humanWins)
-                    Console.WriteLine("Human wins!");
-                else
-                    Console.WriteLine("Computer wins!");
-            }
-            Console.ReadKey();
-        }
-        */
 
         /// <summary>
         /// Updates the board with a player's selected move.

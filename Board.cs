@@ -43,7 +43,9 @@ namespace tictactoe_windowsapp
         {
             if (index < 0 || index > _tiles.Count() - 1)
                 return false;
-            return _tiles[index] == PlayerType.None;
+            if (_tiles[index] == PlayerType.None)
+                return true;
+            return false;
         }
 
         /// <summary>
@@ -54,6 +56,7 @@ namespace tictactoe_windowsapp
         {
             return CheckForWinOrLossHelper() != PlayerType.None;
         }
+
         /// <summary>
         /// Checks board to see if "playerType" has won.
         /// </summary>
